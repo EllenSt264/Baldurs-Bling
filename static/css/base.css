@@ -49,3 +49,69 @@
 .heorot-font {
     font-family: "Heorot", Courier, monospace;
 }
+
+
+/* Center navbar */
+
+nav.nav-center ul {
+    text-align: center;
+}
+
+nav.nav-center ul li {
+    display: inline;
+    float: none;
+}
+nav.nav-center ul li a {
+    display: inline-block;
+}
+
+.brand-logo span {
+    vertical-align: middle;
+}
+
+.nav-title {
+    letter-spacing: 2px;
+    font-size: 32px !important;
+    color: orange;
+}
+
+.nav-title strong {
+    font-size: 36px !important;
+    color: white;
+}
+
+.nav-wrapper a, 
+.dropdown-content a {
+    font-size: 24px !important;
+}
+
+nav ul a:hover,
+nav ul a:focus,
+nav ul a:active {
+    border: none !important;
+}
+
+.dropdown-content {
+    min-width: 105%;
+    width: 105%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.dropdown-content li {
+    display: block !important;
+    text-align: center;
+}
+
+.dropdown-content a:hover {
+    background: none;
+}
+
+#dropdown1 {
+    left: 38.5%;
+}
+
+#dropdown2 {
+    left: 48%;
+}
