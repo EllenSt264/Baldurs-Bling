@@ -26,35 +26,31 @@
     {% block extra_js %}
     {% endblock %}
 
-    <title>Baldr's Bling {% block extra_title %}{% enblock %}</title>
+    <title>Baldr's Bling {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo">Logo</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="">Browse Products</a></li>
-                <li><a href="">Special Offers</a></li>
-                <li><a href="">Discover</a></li>
-                <li><a href="">Delivery Information</a></li>
-                <li><a href="">Contact Us</a></li>
-            </ul>
-        </div>
-    </nav>
+    <header>
+        <nav class="nav-extended">
+            <div class="nav-wrapper">
+                <a href="#!" class="brand-logo">Logo</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="">Browse Products</a></li>
+                    <li><a href="">Special Offers</a></li>
+                    <li><a href="">Discover</a></li>
+                    <li><a href="">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="nav-content">
+                <span class="nav-title">High Quality Jewelry for Norse Pagans: Baldr's Bling</span>
+            </div>
+        </nav>
+    </header>
 
-    <nav class="nav-extended">
-        <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="">Browse Products</a></li>
-                <li><a href="">Special Offers</a></li>
-                <li><a href="">Discover</a></li>
-                <li><a href="">Contact Us</a></li>
-            </ul>
-        </div>
-        <div class="nav-content">
-            <span class="nav-title">High Quality Jewelry for Norse Pagans: Baldr's Bling</span>
-        </div>
-    </nav>
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
 </body>
 </html>
