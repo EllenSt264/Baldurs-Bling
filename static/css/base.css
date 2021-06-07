@@ -1,10 +1,51 @@
-nav.nav-center ul {
-    text-align: center;
+/*  
+* The custom fonts were downloaded from the following sources:
+
+* Odinson Font:
+'https://www.fontspace.com/odinson-font-f33641'
+* Norse Font:
+'https://www.fontspace.com/norse-font-f21080'
+* Heorot Font:
+'https://www.fontspace.com/heorot-font-f33343'
+
+*/
+
+/* Define custom font classes */
+
+@font-face {
+    font-family: "Odinson";
+    src: url("../fonts/Odinson-224w.ttf") format("truetype");
 }
-nav.nav-center ul li {
-    display: inline;
-    float: none;
+
+@font-face {
+    font-family: "Norse";
+    src: url("../fonts/Norse-KaWl.ttf") format("truetype");
 }
-nav.nav-center ul li a {
-    display: inline-block;
+
+@font-face {
+    font-family: "Norse Bold";
+    src: url("../fonts/NorseBold-2Kge.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Heorot";
+    src: url("../fonts/Heorot-4rLK.ttf") format("truetype");
+}
+
+.odinson-font {
+    font-family: "Odinson", Courier, monospace;
+
+}
+
+.norse-font {
+    font-family: "Norse", Courier, monospace;
+    letter-spacing: 1px;
+}
+
+.norse-font-bold {
+    font-family: "Norse Bold", Courier, monospace;
+}
+
+.heorot-font {
+    font-family: "Heorot", Courier, monospace;
 }
