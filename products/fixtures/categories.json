@@ -1,0 +1,114 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "rings",
+            "friendly_name": "Rings"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "necklaces",
+            "friendly_name": "Necklaces"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "braclets",
+            "friendly_name": "Braclets"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "earrings",
+            "friendly_name": "Earrings"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "products.category",
+        "fields": {
+            "name": "brooches",
+            "friendly_name": "Brooches"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "products.category",
+        "fields": {
+            "name": "polearms_axes",
+            "friendly_name": "Polearms and Axes"
+        }
+    },
+    {
+        "pk": 7,
+        "model": "products.category",
+        "fields": {
+            "name": "swords",
+            "friendly_name": "Swords"
+        }
+    },
+    {
+        "pk": 8,
+        "model": "products.category",
+        "fields": {
+            "name": "maces_warhammers",
+            "friendly_name": "Maces and Warhammers"
+        }
+    },
+    {
+        "pk": 9,
+        "model": "products.category",
+        "fields": {
+            "name": "daggers",
+            "friendly_name": "Daggers"
+        }
+    },
+    {
+        "pk": 10,
+        "model": "products.category",
+        "fields": {
+            "name": "horns",
+            "friendly_name": "Drinking Horns"
+        }
+    },
+    {
+        "pk": 11,
+        "model": "products.category",
+        "fields": {
+            "name": "mead",
+            "friendly_name": "Mead"
+        }
+    },
+    {
+        "pk": 12,
+        "model": "products.category",
+        "fields": {
+            "name": "tshirts",
+            "friendly_name": "T-Shirts"
+        }
+    },
+    {
+        "pk": 13,
+        "model": "products.category",
+        "fields": {
+            "name": "fashion_leather",
+            "friendly_name": "Fashion and Misc - Leather"
+        }
+    },
+    {
+        "pk": 14,
+        "model": "products.category",
+        "fields": {
+            "name": "boardgames",
+            "friendly_name": "Historical Board Games"
+        }
+    }
+]
