@@ -1,3 +1,17 @@
+"""
+* Attribution:
+
+* Opening JSON file:
+'https://stackoverflow.com/questions/37228114/opening-a-json-file-in-python'
+
+* Fix JSONDecodeError. This was caused by whitespace in the JSON file:
+'https://stackoverflow.com/questions/61659837/json-decoder-jsondecodeerror-expecting-delimiter-line-1-column-11-char-10'
+
+* Locally save an image from url:
+'https://stackoverflow.com/questions/30229231/python-save-image-from-url'
+
+"""
+
 import urllib.request
 import json
 

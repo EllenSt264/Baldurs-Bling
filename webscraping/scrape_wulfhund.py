@@ -1,3 +1,11 @@
+"""
+* Attribution:
+
+* To fix UnicodeEncodeError when writing to JSON file:
+'https://stackoverflow.com/questions/44391671/python3-unicodeencodeerror-charmap-codec-cant-encode-characters-in-position'
+
+"""
+
 import re
 import requests
 from bs4 import BeautifulSoup
