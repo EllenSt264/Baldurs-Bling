@@ -115,3 +115,38 @@ nav ul a:active {
 #dropdown2 {
     left: 48%;
 }
+
+.parallax-container {
+    height: 85vh;
+}
+
+.parallax-container img {
+    opacity: 0.9 !important;
+}
+
+.section p {
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+.home-container {
+    position: absolute;
+    top: 50vh;
+    left: 5vw;
+    z-index: 100;
+}
+
+.home-container .row {
+    margin-bottom: 0;
+}
+
+.home-container h1 {
+    color: white;
+    background: black;
+    padding: 5px;
+}
+
+.home-container a {
+    font-size: 22px;
+    letter-spacing: 2px;
+}
