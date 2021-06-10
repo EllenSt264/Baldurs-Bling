@@ -50,6 +50,21 @@
     font-family: "Heorot", Courier, monospace;
 }
 
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #212121;
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+
+.my-5 {
+    margin: 5rem 0;
+}
 
 /* Center navbar */
 
