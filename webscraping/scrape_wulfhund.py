@@ -122,9 +122,9 @@ def get_product_information():
                                     for x in options:
                                         regex = re.compile(r"[\n\r\t]")
                                         text = regex.sub(" ", x)
-                                        text = text.replace(' ', '').replace('\xa0€', '')
+                                        text = text.replace(' ', '').replace('\xa0€', '').replace(',','.')
                                         sizes.append(text)
-                else:
+                else:                               
                     sizes.append('no sizes')
 
                 product_sizes.append(sizes)
@@ -156,6 +156,13 @@ def reset_lists():
     if any(all_lists):
         for lis in all_lists:
             lis.clear()
+
+
+def stringfy_list(mylist):
+    mylist = str(mylist)
+    mylist = mylist.replace("[", "").replace("]", "").replace("'", "")
+
+    return mylist
 
 
 def scrape_rings():
@@ -191,19 +198,19 @@ def scrape_rings():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{i+1}",\n\t\t'
+                f'"pk": {i+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 1,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -243,19 +250,19 @@ def scrape_necklaces():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 2,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -298,19 +305,19 @@ def scrape_braclets():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 3,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -353,19 +360,19 @@ def scrape_earrings():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 4,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -398,19 +405,19 @@ def scrape_brooches():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 5,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -453,19 +460,19 @@ def scrape_axes_and_polearms():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 6,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -508,19 +515,19 @@ def scrape_swords():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 7,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -563,19 +570,19 @@ def scrape_maces_and_warhammers():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 8,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -618,19 +625,19 @@ def scrape_daggers():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 9,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -673,19 +680,19 @@ def scrape_horns():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 10,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -718,19 +725,19 @@ def scrape_mead():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 11,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -773,19 +780,19 @@ def scrape_tshirts():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 12,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -828,19 +835,19 @@ def scrape_fashion_leather():
         for i in range(len(product_names)):
             file.write(
                 '{\n\t\t'
-                f'"pk": "{y+1}",\n\t\t'
+                f'"pk": {y+1},\n\t\t'
                 '"model": "products.product",\n\t\t'
                 '"fields": {\n\t\t\t'
-                f'"sku": "{product_skus[i]}",\n\t\t\t'
+                f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                 f'"name": "{product_names[i]}",\n\t\t\t'
                 f'"description": "{product_descriptions[i]}",\n\t\t\t'
                 f'"price": {product_prices[i]},\n\t\t\t'
-                f'"size": "{product_sizes[i]}",\n\t\t\t'
+                f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                 '"category": 13,\n\t\t\t'
                 f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                 f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                f'"more_images": "{product_image_names[i]}"\n\t\t'
+                f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                 '}'
                 '\n\t},\n\t'
             )
@@ -874,19 +881,19 @@ def scrape_boardgames():
             if i != len(product_names) - 1:
                 file.write(
                     '{\n\t\t'
-                    f'"pk": "{y+1}",\n\t\t'
+                    f'"pk": {y+1},\n\t\t'
                     '"model": "products.product",\n\t\t'
                     '"fields": {\n\t\t\t'
-                    f'"sku": "{product_skus[i]}",\n\t\t\t'
+                    f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                     f'"name": "{product_names[i]}",\n\t\t\t'
                     f'"description": "{product_descriptions[i]}",\n\t\t\t'
                     f'"price": {product_prices[i]},\n\t\t\t'
-                    f'"size": "{product_sizes[i]}",\n\t\t\t'
+                    f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                     '"category": 14,\n\t\t\t'
                     f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                     f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                    f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                    f'"more_images": "{product_image_names[i]}"\n\t\t'
+                    f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                    f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                     '}'
                     '\n\t},\n\t'
                 )
@@ -896,16 +903,16 @@ def scrape_boardgames():
                     f'"pk": "{i+1}",\n\t\t'
                     '"model": "products.product",\n\t\t'
                     '"fields": {\n\t\t\t'
-                    f'"sku": "{product_skus[i]}",\n\t\t\t'
+                    f'"sku": "{product_skus[i].lower()}",\n\t\t\t'
                     f'"name": "{product_names[i]}",\n\t\t\t'
                     f'"description": "{product_descriptions[i]}",\n\t\t\t'
                     f'"price": {product_prices[i]},\n\t\t\t'
-                    f'"size": "{product_sizes[i]}",\n\t\t\t'
+                    f'"size": "{stringfy_list(product_sizes[i])}",\n\t\t\t'
                     '"category": 14,\n\t\t\t'
                     f'"image_url": "{product_images[i][0]}",\n\t\t\t'
                     f'"image": "{product_image_names[i][0]}",\n\t\t\t'
-                    f'"more_images_url": "{product_images[i]}",\n\t\t\t'
-                    f'"more_images": "{product_image_names[i]}"\n\t\t'
+                    f'"more_images_url": "{stringfy_list(product_images[i])}",\n\t\t\t'
+                    f'"more_images": "{stringfy_list(product_image_names[i])}"\n\t\t'
                     '}'
                     '\n\t'
                 )
