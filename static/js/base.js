@@ -5,8 +5,8 @@ $(document).ready(function() {
         hover: true,
         constrainWidth: false,
         alignment: 'center',
-        inDuration: 0,
-        outDuration: 800,
+        inDuration: 300,
+        outDuration: 150,
     });
 
     $('.parallax').parallax();
