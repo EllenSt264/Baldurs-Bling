@@ -13,6 +13,16 @@
     <section class="my-5" id="Products">
         <div class="container">
             <div class="row">
+                <div class="col s12 m6">
+                    <p>
+                        {% if search_term or current_categories or current_sorting != 'None_None' %}
+                            <span class="small"><a href="{% url 'products' %}">All Products</a> | </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong>{% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
                 {% for product in page_obj %}
                 <div class="col s12 m6 l4">
                     <div class="card large black white-text">

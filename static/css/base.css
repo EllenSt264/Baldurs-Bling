@@ -194,11 +194,10 @@ nav ul a:active {
     box-sizing: border-box;
     border:none;
     outline:none;
-    font-family:"Open Sans", Arial, Verdana;
+    font-family: 'Josefin Sans', sans-serif;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    color:#FFF;
     transform: translate(0, 60px);
     transition: all .3s cubic-bezier(0.000, 0.105, 0.035, 1.570);
     transition-delay: 0.3s;

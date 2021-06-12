@@ -47,13 +47,15 @@
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down norse-font" style="margin-top: 15px;">
                     <li>
-                        <div class="search-wrapper">
-                            <div class="input-holder">
-                                <input type="text" class="search-input" placeholder="Type to search" />
-                                <button class="search-icon" onclick="searchToggle(this, event);"><span><i class="fas fa-search"></i></span></button>
+                        <form action="{% url 'products' %}" method="GET">
+                            <div class="search-wrapper">
+                                <div class="input-holder">
+                                    <input type="text" id="search" name="q" class="search-input" placeholder="Type to search" />
+                                    <button class="search-icon" onclick="searchToggle(this, event);"><span><i class="fas fa-search"></i></span></button>
+                                </div>
+                                <span class="close" onclick="searchToggle(this, event);"></span>
                             </div>
-                            <span class="close" onclick="searchToggle(this, event);"></span>
-                        </div>
+                        </form>
                     </li>
                     <li><a href="#!">Account</a></li>
                     <li><a href="#!">Shopping Bag</a></li>
