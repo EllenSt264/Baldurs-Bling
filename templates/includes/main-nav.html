@@ -5,45 +5,44 @@
             <div class="col s4">
                 <h5 class="black-text norse-font-bold">Silver Jewellry</h5>
                 <li class="divider"></li>
-                <li><a href="#!">All Jewellry</a></li>
-                <li><a href="#!">Rings</a></li>
-                <li><a href="#!">Necklaces</a></li>
-                <li><a href="#!">Braclets</a></li>
-                <li><a href="#!">Earrings</a></li>
-                <li><a href="#!">Pendants</a></li>
-                <li><a href="#!">Brooches</a></li>
+                <li><a href="{% url 'products' %}?category=rings,necklaces,braclets,earrings,brooches">All Jewellry</a></li>
+                <li><a href="{% url 'products' %}?category=rings">Rings</a></li>
+                <li><a href="{% url 'products' %}?category=necklaces">Necklaces</a></li>
+                <li><a href="{% url 'products' %}?category=braclets">Braclets</a></li>
+                <li><a href="{% url 'products' %}?category=earrings">Earrings</a></li>
+                <li><a href="{% url 'products' %}?category=brooches">Brooches</a></li>
             </div>
             <div class="col s4">
                 <h5 class="black-text norse-font-bold">Armory</h5>
                 <li class="divider"></li>
-                <li><a href="#!">All Weapons</a></li>
-                <li><a href="#!">Viking Axes and Polearms</a></li>
-                <li><a href="#!">Swords</a></li>
-                <li><a href="#!">Maces and Warhammers</a></li>
-                <li><a href="#!">Daggers</a></li>
+                <li><a href="{% url 'products' %}?category=polearms_axes,swords,maces_warhammers,daggers">All Weapons</a></li>
+                <li><a href="{% url 'products' %}?category=polearms_axes">Viking Axes and Polearms</a></li>
+                <li><a href="{% url 'products' %}?category=swords">Swords</a></li>
+                <li><a href="{% url 'products' %}?category=maces_warhammers">Maces and Warhammers</a></li>
+                <li><a href="{% url 'products' %}?category=daggers">Daggers</a></li>
             </div>
             <div class="col s4">
                 <h5 class="black-text norse-font-bold">Apparel</h5>
                 <li class="divider"></li>
-                <li><a href="#!">T-Shirts</a></li>
+                <li><a href="{% url 'products' %}?category=tshirts">T-Shirts</a></li>
             </div>
             <div class="col s4">
                 <h5 class="black-text norse-font-bold">Accessories</h5>
                 <li class="divider"></li>
-                <li><a href="#!">Leather</a></li>>
+                <li><a href="{% url 'products' %}?category=fashion_leather">Leather</a></li>>
             </div>
             
             <div class="col s4">
                 <h5 class="black-text norse-font-bold">Other</h5>
                 <li class="divider"></li>
-                <li><a href="#!">Historical Board Games</a></li>
+                <li><a href="{% url 'products' %}?category=boardgames">Historical Board Games</a></li>
             </div>
             <div class="col s4 right">
                 <h5 class="black-text norse-font-bold">Feasting</h5>
                 <li class="divider"></li>
-                <li><a href="#!">All Feasting Items</a></li>
-                <li><a href="#!">Drinking Horns</a></li>
-                <li><a href="#!">Mead</a></li>
+                <li><a href="{% url 'products' %}?category=horns,mead">All Feasting Items</a></li>
+                <li><a href="{% url 'products' %}?category=horns">Drinking Horns</a></li>
+                <li><a href="{% url 'products' %}?category=mead">Mead</a></li>
             </div>
         </div>
         <div class="row">
