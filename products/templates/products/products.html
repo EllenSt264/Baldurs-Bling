@@ -28,7 +28,7 @@
                         <div class="card-action heorot-font">
                             <p>
                                 <i class="fas fa-tags fa-sm"></i>
-                                <a href="#!">{{ product.category }}</a>
+                                <a href="{% url 'products' %}?category={{ product.category }}">{{ product.category.friendly_name }}</a>
                             </p>
                         </div>
                     </div>
