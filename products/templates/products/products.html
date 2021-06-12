@@ -37,6 +37,12 @@
             </div>
         </div>
 
+        <!-- 
+            The following sources were used to help implement pagination:
+            'https://simpleisbetterthancomplex.com/tutorial/2016/08/03/how-to-paginate-with-django.html'
+            'https://stackoverflow.com/questions/46026268/pagination-and-get-parameters'
+         -->
+
         {% if page_obj.has_other_pages %}
         <ul class="pagination center my-5">
             {% if page_obj.has_previous %}
