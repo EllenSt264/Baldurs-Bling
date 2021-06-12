@@ -11,6 +11,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" type="text/css" 
     integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Google fonts -->
@@ -44,9 +45,17 @@
                     Baldr's Bling
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul class="right hide-on-med-and-down norse-font">
+                <ul class="right hide-on-med-and-down norse-font" style="margin-top: 15px;">
+                    <li>
+                        <div class="search-wrapper">
+                            <div class="input-holder">
+                                <input type="text" class="search-input" placeholder="Type to search" />
+                                <button class="search-icon" onclick="searchToggle(this, event);"><span><i class="fas fa-search"></i></span></button>
+                            </div>
+                            <span class="close" onclick="searchToggle(this, event);"></span>
+                        </div>
+                    </li>
                     <li><a href="#!">Account</a></li>
-                    <li><a href="#!">Search</a></li>
                     <li><a href="#!">Shopping Bag</a></li>
                 </ul>
             </div>
@@ -58,6 +67,23 @@
     {% endblock %}
 
     {% block content %}
+    {% endblock %}
+
+    {% block postloadjs %}
+    <script type="text/javascript">
+        function searchToggle(obj, evt){
+            var container = $(obj).closest('.search-wrapper');
+                if(!container.hasClass('active')){
+                    container.addClass('active');
+                    evt.preventDefault();
+                }
+                else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                    container.removeClass('active');
+                    // clear input
+                    container.find('.search-input').val('');
+                }
+        }
+    </script>
     {% endblock %}
 
 </body>
