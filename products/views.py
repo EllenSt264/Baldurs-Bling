@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Product, Category
-from django.db.models import Q
+from django.core.paginator import Paginator
 
 
 def view_products(request):
@@ -8,7 +8,6 @@ def view_products(request):
 
     products = Product.objects.all()
     categories = None
-    query = None
 
     if request.GET:
         if 'category' in request.GET:
@@ -16,10 +15,15 @@ def view_products(request):
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
 
+    paginator = Paginator(products, 18)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     template = 'products/products.html'
     context = {
         'products': products,
         'current_categories': categories,
+        'page_obj': page_obj,
     }
 
     return render(request, template, context)

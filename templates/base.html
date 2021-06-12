@@ -39,8 +39,8 @@
     <header>
         <nav>
             <div class="nav-wrapper black">
-                <img src="{{ MEDIA_URL }}logo.png" width="105" height="105" alt="" style="padding: 10px;">
-                <a href="#!" class="brand-logo norse-font-bold" style="line-height: 100px; font-size: 48px !important;">
+                <a href="{% url 'home' %}"><img src="{{ MEDIA_URL }}logo.png" width="105" height="105" alt="" style="padding: 10px;"></a>
+                <a href="{% url 'home' %}" class="brand-logo norse-font-bold" style="line-height: 100px; font-size: 48px !important;">
                     Baldr's Bling
                 </a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>

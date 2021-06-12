@@ -13,7 +13,7 @@
     <section class="my-5" id="Products">
         <div class="container">
             <div class="row">
-                {% for product in products %}
+                {% for product in page_obj %}
                 <div class="col s12 m6 l4">
                     <div class="card large black white-text">
                         <div class="card-image">
@@ -36,5 +36,39 @@
                 {% endfor %}
             </div>
         </div>
+
+        {% if page_obj.has_other_pages %}
+        <ul class="pagination center my-5">
+            {% if page_obj.has_previous %}
+                <li class="waves-effecf"><a href="{% if 'category' in request.get_full_path %}{% for c in current_categories %}?category={{c}}&{% endfor %}{% else %}?{% endif %}page={{ page_obj.previous_page_number }}"><i class="fas fa-angle-left"></i></a></li>
+            {% else %}
+                <li class="disabled"><i class="fas fa-angle-left"></i></a></li>
+            {% endif %}
+
+            {% for i in page_obj.paginator.page_range %}
+                {% if page_obj.number > 3 and forloop.first %}
+                    <li class="waves-effect"><a href="{% if 'category' in request.get_full_path %}{% for c in current_categories %}?category={{c}}&{% endfor %}{% else %}?{% endif %}page=1">1</a></li>
+                    <li class="disabled">...</li>
+                {% endif %}
+                {% if page_obj.number == i %}
+                    <li class="active"><a href="#!">{{ i }}</a></li>
+                {% elif i > page_obj.number|add:'-3' and i < page_obj.number|add:'3' %}
+                    <li class="waves-effect"><a href="{% if 'category' in request.get_full_path %}{% for c in current_categories %}?category={{c}}&{% endfor %}{% else %}?{% endif %}page={{ i }}">{{ i }}</a></li>
+                {% endif %}
+                {% if page_obj.paginator.num_pages > page_obj.number|add:'2' and forloop.last %}
+                    <li class="disabled">...</li>
+                    <li class="waves-effect"><a href="{% if 'category' in request.get_full_path %}{% for c in current_categories %}?category={{c}}&{% endfor %}{% else %}?{% endif %}page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="waves-effecf"><a href="{% if 'category' in request.get_full_path %}{% for c in current_categories %}?category={{c}}&{% endfor %}{% else %}?{% endif %}page={{ page_obj.next_page_number }}"><i class="fas fa-angle-right"></i></a></li>
+            {% else %}
+                <li class="disabled"><a href="#!"><i class="fas fa-angle-right"></i></a></li>
+            {% endif %}
+            
+        </ul>
+        {% endif %}
+
     </section>
 {% endblock %}
